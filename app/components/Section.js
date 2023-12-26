@@ -1,4 +1,18 @@
+"use client";
+
+import supabase from "../service/SupabaseService";
+import { useEffect } from "react";
+
 export default function Section() {
+  useEffect(() => {
+    async function genProducts() {
+      let { data, error } = await supabase.from("product").select("*");
+      console.log("data", data);
+      console.log("error", error);
+    }
+    genProducts();
+  }, []);
+
   return (
     <section className="py-5">
       <div className="container px-4 px-lg-5 mt-5">
