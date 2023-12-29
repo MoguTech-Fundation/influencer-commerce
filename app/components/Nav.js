@@ -1,4 +1,13 @@
+import { useEffect, useState } from "react";
+import supabase from "../service/SupabaseService";
+import { useAppSelector } from "../lib/hooks";
+
 export default function Nav() {
+  const cart = useAppSelector((state) => state.cart);
+  console.log("cart", cart);
+  const cart_count = cart.products.length
+    ? cart.products.reduce((curr, next) => curr + next.product_count, 0)
+    : 0;
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container px-4 px-lg-5">
@@ -66,7 +75,7 @@ export default function Nav() {
               <i className="bi-cart-fill me-1"></i>
               Cart
               <span className="badge bg-dark text-white ms-1 rounded-pill">
-                0
+                {cart_count}
               </span>
             </button>
           </form>
