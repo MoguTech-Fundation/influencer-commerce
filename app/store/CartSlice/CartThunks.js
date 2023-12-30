@@ -1,4 +1,4 @@
-import supabase from "@/app/service/SupabaseService";
+import supabase from "../../service/SupabaseService";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const productAddToCart = createAsyncThunk(

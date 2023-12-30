@@ -1,6 +1,6 @@
 "use client";
 
-import { productAddToCart } from "@/app/store/CartSlice/CartThunks";
+import { productAddToCart } from "../../store/CartSlice/CartThunks";
 import { useDispatch } from "react-redux";
 import { uuid } from "uuidv4";
 
